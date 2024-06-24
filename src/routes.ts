@@ -12,11 +12,11 @@ export type ParentRoute = BaseRoute & {
   children : ROUTE_PATH[],
 }
 
-export type childrenRoute = BaseRoute & {
+export type ChildrenRoute = BaseRoute & {
   children: ((props : unknown) => JSX.Element) | null,
 }
 
-export type ROUTE = ParentRoute | childrenRoute
+export type ROUTE = ParentRoute | ChildrenRoute
 
 export const routes: Record<ROUTE_PATH, ROUTE> = {
   '/' : {
