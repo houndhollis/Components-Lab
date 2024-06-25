@@ -1,6 +1,11 @@
-export const routePaths = ['/','/test1','/test2','/test2/vanila','/test2/react'] as const;
+import Accordion from "./components/accordion";
+import Test1 from "./components/test1";
+import Test2_React from "./components/test2/react";
+import Test2_Vanilla from "./components/test2/vanilla";
 
-type ROUTE_PATH = (typeof routePaths)[number]
+export const routePaths = ['/','/accordion'] as const;
+
+export type ROUTE_PATH = (typeof routePaths)[number]
 
 type BaseRoute = {
   key : ROUTE_PATH,
@@ -23,32 +28,14 @@ export const routes: Record<ROUTE_PATH, ROUTE> = {
     key: '/',
     link: '/',
     name : 'root',
-    children: ['/test1', '/test2'],
+    children: ['/accordion'],
   },
-  '/test1' : {
-    key: '/test1',
-    link : '/test1',
-    name : '테스트1',
-    children: null
+  '/accordion' : {
+    key: '/accordion',
+    link : '/accordion',
+    name : '아코디언',
+    children: Accordion
   },
-  '/test2' : {
-    key: '/test2',
-    link : '/test2',
-    name : '테스트2',
-    children: ['/test2/vanila', '/test2/react']
-  },
-  '/test2/vanila' : {
-    key: '/test2/vanila',
-    link : '/test2/vanila',
-    name : 'vanila',
-    children: null,
-  },
-  '/test2/react' : {
-    key: '/test2/react',
-    link : '/test2/react',
-    name : 'react',
-    children: null,
-  }
 }
 
 export const isParentRoute = (route : ROUTE) : route is ParentRoute => Array.isArray(route.children);
