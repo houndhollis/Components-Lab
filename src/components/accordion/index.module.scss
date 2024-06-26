@@ -66,4 +66,35 @@
       max-height: 300px;
     }
   }
+
+  .item5 {
+    overflow: hidden;
+    .tab {
+      display: block;
+    }
+    .input {
+      display: none;
+    }
+    .description {
+      padding: 0 15px;
+      border-bottom-width: 0;
+      max-height: 0;
+      transition: ease 0.3s;
+    }
+    .input:checked {
+      + .tab {
+        background-color: #ace;
+
+        &::before {
+          content: '-';
+        }
+      }
+
+      ~ .description {
+        padding: 15px;
+        border-bottom-width: 1px;
+        max-height: 300px;
+      }
+    }
+  }
 }

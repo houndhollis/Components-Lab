@@ -22,7 +22,7 @@ const AccordionItem = ({id, title, description, current, toggleItem} : Accordion
       >
         {title}
       </div> 
-      <div className={cx('description', {current})}>
+      <div className={cx('description')}>
         {description}
       </div>
     </li>
