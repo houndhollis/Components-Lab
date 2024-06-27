@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const VannilaWrapper = ({initiator} : {initiator :(wrapper: HTMLDivElement) => void}) => {
+const VanilaWrapper = ({initiator, title = ''} : {initiator :(wrapper: HTMLDivElement) => void; title?: string}) => {
   
   const wrapper = useRef<HTMLDivElement>(null);
   const isInit = useRef(false);
@@ -13,8 +13,11 @@ const VannilaWrapper = ({initiator} : {initiator :(wrapper: HTMLDivElement) => v
   },[initiator]);
 
   return (
-    <div ref={wrapper}/>
+    <>
+      {title && <h3>{title}. Vanilla</h3>}
+      <div ref={wrapper}/>
+    </>
   )
 }
 
-export default VannilaWrapper;
+export default VanilaWrapper;
